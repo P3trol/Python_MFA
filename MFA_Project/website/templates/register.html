@@ -1,0 +1,110 @@
+{% extends "base.html" %} {% block title%}Register{% endblock %} {% block content %}
+
+<!-- Body of Form starts -->
+<form method="POST" autocomplete="on">
+      <div class="container" style="background: #8856a7" >
+    
+    <!--title-->
+    <div class ="title" style = "font-size: 20px; font-family: verdana;">
+    <label for="" class="fl fontLabel" style="color: white;">Register</label>
+    <div class="clr"></div>
+    <!--title-->
+
+       <!--Username-->
+    <div class ="box">
+       <label for="" class="fl fontLabel" style="color: white;">Username: </label>
+       <input type="text" id="username" name="username" placeholder="Create a username" class = "textBox" autofocus ="on" required>
+       <div class="clr"></div>
+    </div>
+     
+        
+
+      <!--First name-->
+      <div class ="box">
+       <label for="" class="fl fontLabel" style="color: white;">First name:</label>
+       <input type="text" id="fname" name="fname" placeholder="Enter Your First Name" class = "textBox" autofocus ="on" required>
+       <div class="clr"></div>
+      </div>
+       
+      <!--First name--> 
+
+      <!--Last Name-->
+      <div class ="box">
+       <label for="" class="fl fontLabel" style="color: white;">Last Name:</label>
+       <input type="text" id="lname" name="lname" placeholder="Enter Your Last Name" class = "textBox" autofocus ="on" required>
+      
+       <div class="clr"></div>
+      </div>
+       
+      <!--Last Name--> 
+
+      <!--Email Address-->
+      <div class ="box">
+       <label for="" class="fl fontLabel" style="color: white;">Email Address:</label>
+       <input type="email" id="email" name="email" placeholder="Enter Your Email Address" class = "textBox" autofocus ="on" required>
+      
+       <div class="clr"></div>
+      </div>
+       
+      <!--Email Address--> 
+
+      <!--Password-->
+      <div class ="box">
+       <label for="" class="fl fontLabel" style="color: white;">Password:</label>
+       <input type="password" id="pass1" name="pass1" placeholder="Create a password" class = "textBox" autofocus ="on" required>
+      
+       <div class="clr"></div>
+      </div>
+       
+      <!--Password--> 
+
+      <!--Confim a Password-->
+      <div class ="box">
+       <label for="" class="fl fontLabel" style="color: white;">Confirm Password:</label>
+       <input type="password" id="pass2" name="pass2" placeholder="Confirm Your password" class = "textBox" autofocus ="on" required>
+      
+       <div class="clr"></div>
+      </div>
+       
+      <!--Confim a Password--> 
+
+      <div class="form-group">
+         <label for="secret" style="color: white;">Secret Token</label>
+         <input type="text" class="form-control" id="secret" value="{{ secret }}" readonly>
+       </div>
+       <div class="text-center">
+         <button type="button" class="btn btn mb1 bg-white" onclick="copySecret()">Copy Secret</button>
+       </div>
+
+
+      <form method="POST">
+         <div class="form-group">
+           <label for="otp" style="color: white;">Generated OTP</label>
+           <input type="hidden" name="secret" value="{{ secret }}" required>
+           <input type="number" class="form-control" id="otp" name="otp" required>
+         </div>
+
+      <!--Register button-->   
+
+       <div class="box" >
+       <input type="Submit" name="Submit" class="submit" value="SUBMIT">
+       </div>
+   
+      
+    <script>
+         function copySecret() {
+           /* Get the text field */
+           var copyText = document.getElementById("secret");
+       
+           /* Select the text field */
+           copyText.select();
+           copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+       
+           /* Copy the text inside the text field */
+           document.execCommand("copy");
+       
+           alert("Successfully copied TOTP secret token!");
+         }
+       </script>
+
+{% endblock %}

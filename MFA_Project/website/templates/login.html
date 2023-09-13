@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title%}Login{% endblock %}
+
+{% block content %}
+
+</head>
+  
+  
+<div class="container" style="background: #8856a7"> <!--colours taken from colorbrewer2.org-->
+ <form action="/login" method="post">
+ 
+  
+  <!--title-->
+   <div class ="title" style = "font-size: 20px; font-family: verdana;">
+   <label for="" class="fl fontLabel" style="color: white;">Login</label> 
+   <div class="clr"></div>
+  <!--title-->
+
+    <!--Username-->
+   <div class ="box">
+    <label for="" class="fl fontLabel" style="color: white;" >Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter Your Username" class = "textBox" autofocus ="on" required>
+   </div>
+   <div class="clr"></div>
+ 
+ <br>
+ <!--Username--> 
+
+ <!--Password-->
+ <div class ="box">
+    <label for=""  class="fl fontLabel" style="color: white;" >Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter Your Password" class = "textBox" autofocus ="on" required>
+  </div>
+  <div class="clr"></div>
+ 
+ <br>
+ <!--Password--> 
+
+
+ <!--otp-->
+ <form method="POST">
+  <div class="form-group">
+    <label for="otp" style="color: white;">OTP</label>
+    <input type="hidden" name="secret" value="{{ secret }}" required>
+    <input type="number" class="form-control" id="otp" name="otp" required>
+  </div>
+  <!--otp-->
+
+  <image src="{{url_for('static',filename = 'images/captcha.png')}}" >
+
+  <!--captcha-->
+  <div class ="box">
+    <label for=""  class="fl fontLabel" style="color: white;" >Captcha:</label>
+    <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha from above" class = "textBox" required>
+    
+  
+  </div>
+  <div class="clr"></div>
+ 
+ <br>
+  <!--captcha-->
+
+   
+  <input type="Submit" name="Submit" class="submit" value="SUBMIT" style="background-color: #9ebcda; color: black;" >
+  
+  </div>
+{% endblock %}
